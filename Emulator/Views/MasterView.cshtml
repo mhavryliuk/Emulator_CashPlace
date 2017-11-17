@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Эмулятор кассового места</title>
+    <link href="~/Content/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="~/Content/js/scrypts.js"></script>
+</head>
+<body id="main_body">
+    <div id="wrapper">
+
+        <!-- Шапка -->
+        <div id="header"><a href="index.html" title="На главную страницу"><img src="~/Content/images/logo.jpg" alt="Logo CashBox" /></a></div>
+
+        <!-- Тело документа -->
+        <div class="separator"></div>
+        @RenderBody()
+        <div class="separator"></div>
+
+        <!-- Подвал -->
+        <div id="footer">
+            <p></p>
+        </div>
+    </div>
+</body>
+</html>

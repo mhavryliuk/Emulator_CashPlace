@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Emulator.Models.Product>
+@{
+    Layout = "/Views/MasterView.cshtml";
+    //ViewBag.Title = "Index";
+}
+
+<div id="content">
+
+    <!-- Информация о текущей дате и количестве совершенных покупок (с сервера) -->
+    <!--<div id="info">
+        <form id="info_form">
+            <p>Текущая дата: <input type="text" name="date" readonly="readonly" /><br /></p>
+            <p>Количество покупок за сегодня: <input type="text" name="day_amount" readonly="readonly" /></p>
+        </form>
+        <hr />
+    </div>-->
+    <!-- Форма заказа -->
+    <form onsubmit="return false" action="/Home/Form" method="post">
+        <table>
+            <!-- Заголовки столбцов формы заказа -->
+            <tr>
+                <th class="grocery_list">Наименование товара</th>
+                <th class="grocery_list">Цена</th>
+                <th class="grocery_list">Количество</th>
+                <th class="grocery_list">Сумма</th>
+            </tr>
+
+            <tr>
+                <!-- Выпадающий список товаров -->
+                <td id="grocery_list">
+                    <fieldset>
+                        <select name="Product">
+                            <optgroup label="Напитки">
+                                <option value="drink01">Сок Садочок 1л</option>
+                                <option value="drink02">Мин.вода Боржоми 0,5л</option>
+                                <option value="drink03">Лимонлад Росинка 2л</option>
+                                <option value="drink04">Ликер Malibu 0,5л</option>
+                            </optgroup>
+                            <optgroup label="Фрукты">
+                                <option value="fruit01">Хурма</option>
+                                <option value="fruit02">Груша Вильямс</option>
+                                <option value="fruit03">Яблоко Украина</option>
+                                <option value="fruit04">Ананас Беби</option>
+                            </optgroup>
+                            <optgroup label="Мясо">
+                                <option value="meat01">Баранина задняя часть</option>
+                                <option value="meat02">Стейк свинной из грудинки</option>
+                                <option value="meat03">Корейка свиная на ребре</option>
+                                <option value="meat04">Свиная голень</option>
+                            </optgroup>
+                        </select>
+                    </fieldset>
+                </td>
+
+                <!-- Поле для указания цены -->
+                <td class="grocery_list">
+                    <input type="text" id="price" name="Price" placeholder="Укажите стоимость" required pattern="[0-9999]{,4}" />
+                </td>
+
+                <!-- Поле для указания количества товара -->
+                <td class="grocery_list">
+                    <input type="text" id="quantity" name="Quantity" placeholder="Укажите количество" required pattern="[0-99]{,2}" />
+                </td>
+
+                <!-- Поле для подсчета суммы за товар -->
+                <td class="grocery_list" id="result" name="Result">
+                    <p>CalcSum();</p>
+                </td>
+            </tr>
+            <!-- Строка с кнопкой для формирования чека -->
+            <tr>
+                <td></td>
+                <td colspan="2"><input type="submit" name="submit" value="Сформировать чек" onClick="window.open('receipt.html', '_blank');" /></td>
+                <td><img src="~/Content/images/CardTerminal128.png" alt="Терминал" /></td>
+            </tr>
+        </table>
+    </form>
+</div>
