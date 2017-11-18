@@ -25,7 +25,9 @@ namespace Emulator.Models
         public decimal Price { get; set; }
         public int Quantity { get; set; }
         public string Status { get; set; }
-    
+        // Дата покупки
+        public DateTime OrderDate { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Info> Infoes { get; set; }
         public virtual Product Product { get; set; }

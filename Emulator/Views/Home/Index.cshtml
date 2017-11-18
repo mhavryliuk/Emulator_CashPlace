@@ -1,7 +1,6 @@
 ﻿@model IEnumerable<Emulator.Models.Product>
 @{
     Layout = "/Views/MasterView.cshtml";
-    //ViewBag.Title = "Index";
 }
 
 <div id="content">
@@ -14,6 +13,7 @@
         </form>
         <hr />
     </div>-->
+
     <!-- Форма заказа -->
     <form onsubmit="return false" action="/Home/Form" method="post">
         <table>
@@ -70,7 +70,9 @@
             <!-- Строка с кнопкой для формирования чека -->
             <tr>
                 <td></td>
-                <td colspan="2"><input type="submit" name="submit" value="Сформировать чек" onClick="window.open('receipt.html', '_blank');" /></td>
+                <!-- Не могу разобраться, как откывать новое окно с чеком при нажатии на кнопке???  -->
+                <!-- onclick="window.location.href='@Url.Action("Receipt", "Home")'" -->
+                <td colspan="2"><input type="submit" name="submit" value="Сформировать чек" onClick="window.open('Receipt', '_blank');" /></td>
                 <td><img src="~/Content/images/CardTerminal128.png" alt="Терминал" /></td>
             </tr>
         </table>

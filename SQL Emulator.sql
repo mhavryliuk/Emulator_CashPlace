@@ -1,8 +1,8 @@
--- Подключаем БД
+-- Connecting a database
 USE [D:\IDE\VS2017\Projects\Consimple\Emulator\Emulator\App_Data\PurchaseDB.mdf]
 GO
 
--- Создаем таблицу Product
+-- Create table Product
 CREATE TABLE Products
 (
 	Id int IDENTITY NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE Products
 )
 GO
 
--- Создаем таблицу Orders
+-- Create table Orders
 CREATE TABLE Orders
 (
 	Id int IDENTITY NOT NULL PRIMARY KEY,
@@ -22,7 +22,7 @@ CREATE TABLE Orders
 )
 GO
 
--- Создаем таблицу Info
+-- Create table Info
 CREATE TABLE Info
 (
 	Id int IDENTITY NOT NULL,
@@ -32,7 +32,7 @@ CREATE TABLE Info
 )
 Go
 
--- Заполняем таблицу Products
+-- Filling the table Products
 INSERT INTO Products
 (ProductId, Name)
 VALUES
@@ -55,22 +55,22 @@ SELECT * FROM Orders
 SELECT * FROM Info
 
 /*
--- Удаление данных из таблицы
+-- Deleting data from a table
 DELETE Orders
 
--- Удаление данных из таблицы с обнулением счетчика
+-- Deleting data from a table with zeroing of the counter
 DELETE FROM Orders
 DBCC CHECKIDENT('Orders', RESEED, 0)
 
--- Удаление строки
+-- Delete a row
 ALTER TABLE Orders DROP COLUMN Total;
 ALTER TABLE Orders DROP COLUMN Date;
 
--- Создание новой строки
+-- Creating a new row
 ALTER TABLE Orders ADD Total int;
 ALTER TABLE Orders ADD Date Date;
 
--- Удаление таблицы
+-- Delete a table
 DROP TABLE Info
 DROP TABLE Orders
 DROP TABLE Products

@@ -1,8 +1,4 @@
 ﻿using Emulator.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Emulator.Controllers
@@ -19,12 +15,11 @@ namespace Emulator.Controllers
             return View(Items);
         }
 
-        //[HttpGet]
-        //public ActionResult Form(int item_id = 0)
-        //{
-        //    ViewBag.Item = item_id;
-        //    return PartialView();
-        //}
+        [HttpGet]
+        public ActionResult Form()
+        {
+            return View();
+        }
 
         [HttpPost]
         public string Form(string Product, decimal Price, int Quantity)
@@ -36,6 +31,7 @@ namespace Emulator.Controllers
                 Quantity = Quantity,
                 Status = "Completed"
             };
+            
             db.Orders.Add(order);
             db.SaveChanges();
             return "Consimple: Спасибо за Вашу покупку!";
